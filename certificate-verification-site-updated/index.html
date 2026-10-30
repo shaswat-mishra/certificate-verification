@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f9fc" />
+  <title>Certificate Verification | CodSoft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="CodSoft home" onclick="showPage('home'); return false;">
+      <span class="brand-mark" aria-hidden="true"><span></span><i></i></span>
+      <span class="brand-copy"><strong>CodSoft</strong><small>Code.Create.Succeed</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#home" onclick="showPage('home'); return false;">Home</a>
+      <a class="active" href="#verify" onclick="showPage('verify'); return false;">Verification</a>
+      <a href="#services" onclick="showPage('verify'); return false;">Services</a>
+      <a href="#about" onclick="showPage('verify'); return false;">About Us</a>
+      <a href="#contact" onclick="showPage('verify'); return false;">Contact Us</a>
+    </nav>
+    <button class="menu-button" id="menuButton" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <!-- PAGE 1: Welcome / landing -->
+    <section id="homePage" class="page hero-page">
+      <div class="eyebrow"><span class="shield">✓</span> SECURE VALIDATION</div>
+      <h1>Verify Your Internship<br><em>Certificate</em></h1>
+      <p class="hero-description">Verify internship certificates using a unique certificate ID. Ensure authenticity and validate student achievements through the certificate verification portal.</p>
+      <div class="benefits">
+        <div><span class="check">✓</span> Secure Verification System</div>
+        <div><span class="check">✓</span> Unique Certificate ID</div>
+        <div><span class="check">✓</span> Instant Validation</div>
+        <div><span class="check">✓</span> Certificate Details</div>
+      </div>
+      <button class="primary-button" onclick="showPage('verify')"><span class="button-check">✓</span> Verify Your Certificate <span class="arrow">→</span></button>
+      <p class="small-note">Have a certificate code? Start verification here.</p>
+    </section>
+
+    <!-- PAGE 2: Certificate code search -->
+    <section id="verifyPage" class="page verify-page hidden">
+      <div class="section-label">CERTIFICATE VERIFICATION SYSTEM</div>
+      <div class="search-card">
+        <form id="verifyForm" novalidate>
+          <label class="sr-only" for="certificateCode">Certificate code</label>
+          <input id="certificateCode" name="certificateCode" type="text" placeholder="Enter Certificate Code" autocomplete="off" required />
+          <button type="submit">Search</button>
+        </form>
+        <p class="form-hint">Enter the certificate ID exactly as printed on the certificate.</p>
+        <p id="searchError" class="error-message hidden" role="alert">Please enter a certificate code.</p>
+      </div>
+      <button class="back-link" onclick="showPage('home')">← Back to home</button>
+    </section>
+
+    <!-- PAGE 3: Result / invalid result -->
+    <section id="resultPage" class="page result-page hidden">
+      <div class="result-heading-row">
+        <div>
+          <div class="section-label">VERIFICATION STATUS</div>
+          <h2 id="resultTitle">Certificate Result</h2>
+        </div>
+        <span id="statusBadge" class="status-badge">Verified</span>
+      </div>
+      <div id="resultCard" class="result-card" aria-live="polite"></div>
+      <div class="result-actions">
+        <button class="secondary-button" onclick="showPage('verify')">Search another certificate</button>
+        <button class="text-button" onclick="showPage('home')">Back to home</button>
+      </div>
+      <p class="disclaimer">This demonstration website displays records configured in its local data file. For production use, connect it to an authorized certificate database or secure API.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><span>© <span id="year"></span> • Built with care by</span> <a href="#home" onclick="showPage('home'); return false;">CodSoft</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
